@@ -6,7 +6,7 @@
 # ----------------------------------------------------------------
 
 global:
-  preempt_seconds: 1 # fast-test不使用此字段，但为保证配置校验通过而保留
+  first_request_delay_ms: 1000 # fast-test不使用此字段，但为保证配置校验通过而保留
 
 # 每日抢座计划
 week_config:

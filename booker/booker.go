@@ -27,12 +27,26 @@ type BookResponseData struct {
 }
 
 // IsSuccess checks if the booking response indicates success.
-// It handles cases where CODE might be a string ("ok") or other types.
 func (r *BookResponseData) IsSuccess() bool {
 	if codeStr, ok := r.CODE.(string); ok {
 		return codeStr == "ok"
 	}
 	return false
+}
+
+// IsRateLimited checks if the server rejected the request due to rate limiting.
+func (r *BookResponseData) IsRateLimited() bool {
+	return strings.Contains(r.MESSAGE, "请求太频繁")
+}
+
+// IsSeatOccupied checks if the target seat is already taken by another user.
+func (r *BookResponseData) IsSeatOccupied() bool {
+	return strings.Contains(r.MESSAGE, "座位无法预约")
+}
+
+// IsTimeRangeError checks if the booking window hasn't opened yet on the server side.
+func (r *BookResponseData) IsTimeRangeError() bool {
+	return strings.Contains(r.MESSAGE, "超出可预约座位时间范围")
 }
 
 // getApiToken generates the required api-token header value.

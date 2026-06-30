@@ -39,7 +39,7 @@ func TestLoadSeatConfig(t *testing.T) {
 	// --- 修正：将全角冒号 '：' 改为半角冒号 ':' ---
 	baseValidYAML := `
 global:
-  preempt_seconds: 15
+  first_request_delay_ms: 1000
 week_config:
   周一:
     启用: true
@@ -103,6 +103,14 @@ week_config:
 			},
 			expectErr:   true,
 			errContains: "Duration+BookStartHour", // 对应你的错误信息
+		},
+		{
+			name: "无效的 first_request_delay_ms",
+			modifier: func(y string) string {
+				return strings.Replace(y, "first_request_delay_ms: 1000", "first_request_delay_ms: -1", 1)
+			},
+			expectErr:   true,
+			errContains: "First_Request_Delay_Ms",
 		},
 	}
 

@@ -35,9 +35,9 @@ type SeatConfig struct {
 }
 
 // GlobalConfig holds settings that apply to all tasks.
-// 全局配置，目前只有提前开始时间一个配置变量
+// 全局配置，目前只有首次请求延迟一个配置变量
 type GlobalConfig struct {
-	PreemptSeconds int `yaml:"preempt_seconds"`
+	FirstRequestDelayMs int `yaml:"first_request_delay_ms"`
 }
 
 // DayConfig represents the configuration for a specific day of the week.
@@ -61,6 +61,12 @@ func LoadSeatConfig(path string) (*SeatConfig, error) {
 	err = yaml.Unmarshal(data, &config)
 	if err != nil {
 		return nil, err
+	}
+	if config.Global.FirstRequestDelayMs == 0 {
+		config.Global.FirstRequestDelayMs = 1000
+	}
+	if config.Global.FirstRequestDelayMs < 0 {
+		return nil, fmt.Errorf("配置校验失败->global的'First_Request_Delay_Ms'(%d)无效,必须大于等于0", config.Global.FirstRequestDelayMs)
 	}
 	for day, dayConfig := range config.WeekConfig {
 		if dayConfig.RunAtHour > 24 || dayConfig.RunAtHour < 0 {

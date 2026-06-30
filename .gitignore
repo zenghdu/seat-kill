@@ -30,4 +30,37 @@ go.work.sum
 # Editor/IDE
 # .idea/
 # .vscode/
+
+# ========================
+# Privacy & Security
+# ========================
+
+# User credentials - never commit (matches any directory)
 user_info.yml
+user_info_*.yml
+
+# ========================
+# Build Artifacts
+# ========================
+
+# Compiled binaries
+seat-killer
+seat-killer_*
+
+# ========================
+# Logs & Runtime
+# ========================
+
+# Log files
+*.log
+
+# Runtime cache (raw server responses, not source)
+cache/seat_data_cache.json
+
+# ========================
+# Other Users' Data
+# ========================
+
+# Wu's config and directory
+user_config_wu.yml
+wu/
