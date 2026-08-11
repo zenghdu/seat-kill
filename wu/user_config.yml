@@ -1,0 +1,90 @@
+# ----------------------------------------------------------------
+# 可用自习室及座位范围参考 (数据来源: seat_report.txt)
+#
+# - 二楼西学习空间: 1-448
+# - 五楼特藏阅览室: 1-66
+# - 信息检索室（二楼）: 1-20
+# - 十二楼学习空间: 1-450
+# - 守正书院: 1-55
+# - 宋韵云图（四楼）: 1-424
+# - 文学艺术书库（九楼）: 1-128
+# - 杭韵数阁（六楼）: 1-424
+# - 格物 E 堂（二楼东）: 1-332
+# - 求新书院: 1-78
+# - 社会科学书库（三楼北）: 1-32
+# - 社会科学书库（三楼西）: 1-44
+# - 社会科学第二数据（八楼）: 1-176
+# - 综合第一书库（十一楼）: 1-120
+# - 综合第二书库（十楼）: 1-116
+# - 自然科学书库（三楼东）: 1-40
+# - 自然科学第二书库（七楼）: 1-120
+# ----------------------------------------------------------------
+
+# 全局抢座参数
+global:
+  first_request_delay_ms: 1000  # 开抢后延迟 1000ms 再发起第一次请求
+
+# 每日抢座计划
+week_config:
+  周一: # 预约目标：周三
+    启用: true
+    run_at_hour: 20
+    run_at_minute: 0
+    name: "宋韵云图（四楼）"
+    seats: ["166", "94", "17"]
+    book_start_hour: 9
+    duration: 13
+
+  周二: # 预约目标：周四
+    启用: true
+    run_at_hour: 20
+    run_at_minute: 0
+    name: "宋韵云图（四楼）"
+    seats: ["166", "94", "17"]
+    book_start_hour: 9
+    duration: 13
+
+  周三: # 预约目标：周五
+    启用: true
+    run_at_hour: 20
+    run_at_minute: 0
+    name: "宋韵云图（四楼）"
+    seats: ["166", "94", "17"]
+    book_start_hour: 9
+    duration: 13
+
+  周四: # 预约目标：周六
+    启用: true
+    run_at_hour: 20
+    run_at_minute: 0
+    name: "宋韵云图（四楼）"
+    seats: ["166", "94", "17"]
+    book_start_hour: 9
+    duration: 13
+
+  周五: # 预约目标：周日
+    启用: true
+    run_at_hour: 20
+    run_at_minute: 0
+    name: "宋韵云图（四楼）"
+    seats: ["166", "94", "17"]
+    book_start_hour: 9
+    duration: 13
+
+  周六: # 预约目标：下周一
+    启用: true
+    run_at_hour: 20
+    run_at_minute: 0
+    name: "宋韵云图（四楼）"
+    seats: ["166", "94", "17"]
+    book_start_hour: 9
+    duration: 13
+
+  周日: # 预约目标：下周二
+    启用: true
+    run_at_hour: 20
+    run_at_minute: 0
+    name: "宋韵云图（四楼）"
+    seats: ["166", "94", "17"]
+    book_start_hour: 9
+    duration: 13

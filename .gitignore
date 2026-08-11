@@ -56,11 +56,3 @@ seat-killer_*
 
 # Runtime cache (raw server responses, not source)
 cache/seat_data_cache.json
-
-# ========================
-# Other Users' Data
-# ========================
-
-# Wu's config and directory
-user_config_wu.yml
-wu/
