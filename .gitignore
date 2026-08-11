@@ -43,10 +43,6 @@ user_info_*.yml
 # Build Artifacts
 # ========================
 
-# Compiled binaries
-seat-killer
-seat-killer_*
-
 # ========================
 # Logs & Runtime
 # ========================
